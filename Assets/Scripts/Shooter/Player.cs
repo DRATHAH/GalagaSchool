@@ -8,27 +8,37 @@ public class Player : MonoBehaviour
     // its type: int (5, 8, 36, etc.), float (2.5f, 3.7f, etc.)
     // its name: speed, playerSpeed --- Speed, PlayerSpeed
     // optional: give it an initial value
-    private float speed;
-   
+    public float speed = 0f;
+    public GameObject bullet;
+
     private float horizontalInput;
     private float verticalInput;
-
-    public GameObject bullet;
+    CharacterController characterController;
 
     // Start is called before the first frame update
     void Start()
     {
-        speed = 5f;
+        characterController = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+        Movement();
         Shooting();
     }
 
-    
+    public void Movement()
+    {
+        verticalInput = Input.GetAxis("Vertical");
+        horizontalInput = Input.GetAxis("Horizontal");
+
+        Vector3 movement = new Vector3(horizontalInput * speed, 0, verticalInput * speed);
+        movement = Vector3.ClampMagnitude(movement, speed);
+
+        movement *= Time.deltaTime;
+        characterController.Move(movement);
+    }
        
 
     void Shooting()
