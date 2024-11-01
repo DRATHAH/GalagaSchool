@@ -11,6 +11,11 @@ public class Player : MonoBehaviour
     public bool canMove = true;
     public float speed = 0f;
     public GameObject bullet;
+    public int dmg;
+    public float bulletspeed = 400;
+    public Transform spawnPos;
+    public float bulletoffset = 0.5f;
+    
 
     private float horizontalInput;
     private float verticalInput;
@@ -52,7 +57,8 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             //Create a bullet
-            Instantiate(bullet, transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+            GameObject spawnedbullet = Instantiate(bullet,spawnPos.position + spawnPos.forward*bulletoffset, spawnPos.rotation);
+            spawnedbullet.GetComponent<Bullet>().Initialize(spawnPos.forward, spawnPos.position, bulletspeed, dmg);
         }
     }
 

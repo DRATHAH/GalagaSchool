@@ -377,7 +377,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canMove: 1
   speed: 10
-  bullet: {fileID: 0}
+  bullet: {fileID: 2695143409337208981, guid: 6d969779ac14a864d93f24061bf92d51, type: 3}
+  dmg: 0
+  bulletspeed: 400
+  spawnPos: {fileID: 202145950}
+  bulletoffset: 0.5
 --- !u!1 &239536731
 GameObject:
   m_ObjectHideFlags: 0
