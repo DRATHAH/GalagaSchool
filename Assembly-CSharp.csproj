@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Shooter\DamageableCharacter.cs" />
     <Compile Include="Assets\Scripts\Shooter\IDamageable.cs" />
+    <Compile Include="Assets\Scripts\Shooter\BorderHit.cs" />
     <Compile Include="Assets\Scripts\Shooter\Bullet.cs" />
     <Compile Include="Assets\Scripts\SaveTest\Demo.cs" />
     <Compile Include="Assets\Scripts\SaveTest\JsonDataService.cs" />

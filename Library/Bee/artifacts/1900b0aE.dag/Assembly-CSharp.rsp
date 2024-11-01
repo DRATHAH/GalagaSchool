@@ -357,6 +357,7 @@
 "Assets/Scripts/SaveTest/IDataService.cs"
 "Assets/Scripts/SaveTest/JsonDataService.cs"
 "Assets/Scripts/SaveTest/VoiceDetection.cs"
+"Assets/Scripts/Shooter/BorderHit.cs"
 "Assets/Scripts/Shooter/Bullet.cs"
 "Assets/Scripts/Shooter/DamageableCharacter.cs"
 "Assets/Scripts/Shooter/IDamageable.cs"
