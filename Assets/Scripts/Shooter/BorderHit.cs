@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class BorderHit : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [Tooltip("Place that player teleports to")]
+    public Transform teleportLocation;
+
+    private void OnTriggerEnter(Collider other)
     {
-        
+        Player player = other.transform.GetComponent<Player>();
+
+        if (player != null)
+        {
+            player.canMove = false;
+            other.transform.position = new Vector3(teleportLocation.position.x, player.transform.position.y, player.transform.position.z);
+            StartCoroutine(DelayMove(player));
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator DelayMove(Player player)
     {
-        
+        yield return new WaitForSeconds(.05f);
+        player.canMove = true;
     }
 }

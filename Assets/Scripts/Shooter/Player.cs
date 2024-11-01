@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     // its type: int (5, 8, 36, etc.), float (2.5f, 3.7f, etc.)
     // its name: speed, playerSpeed --- Speed, PlayerSpeed
     // optional: give it an initial value
+    public bool canMove = true;
     public float speed = 0f;
     public GameObject bullet;
 
@@ -24,7 +25,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Movement();
+        if (canMove)
+        {
+            Movement();
+        }
         Shooting();
     }
 
