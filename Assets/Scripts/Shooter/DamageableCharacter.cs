@@ -46,24 +46,14 @@ public class DamageableCharacter : MonoBehaviour, IDamageable
 
     public int maxHealth = 10;
     public int health = 10;
-    public int awakeHealth = 10;
-    public int maxShield = 0;
-    public int shield = 0;
-    public float regenDelay = 2f;
-    public float regenRate;
-    public bool shieldRegen = false;
-    public float lastHit = 0f;
     public bool isPlayer = false;
 
-    float addAmount = 0f;
-    bool canRegen = true;
     bool targetable = true;
     Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        awakeHealth = maxHealth;
         rb = GetComponent<Rigidbody>();
         // Get animator
     }
@@ -71,20 +61,10 @@ public class DamageableCharacter : MonoBehaviour, IDamageable
     // Update is called once per frame
     void Update()
     {
-        lastHit += Time.deltaTime;
 
-        if (canRegen && shield < maxShield)
-        {
-            addAmount += regenRate * Time.deltaTime;
-            shield += (int)addAmount;
-            if (addAmount >= 1f)
-            {
-                addAmount = 0;
-            }
-        }
     }
 
-    public void OnHit(int damage, GameObject hit)
+    public void OnHit(int damage)
     {
         float floatDmg = (float)damage;
 

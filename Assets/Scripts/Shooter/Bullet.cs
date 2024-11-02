@@ -24,8 +24,7 @@ public class Bullet : MonoBehaviour
         if (damageable && canHit)
         {
             canHit = false;
-            GameObject hit = collision.gameObject;
-            damageable.OnHit(dmg, hit);
+            damageable.OnHit(dmg);
         }
 
         Destroy(gameObject);

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : DamageableCharacter
 {
     // its access level: public or private
     // its type: int (5, 8, 36, etc.), float (2.5f, 3.7f, etc.)
